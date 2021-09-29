@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { LoginContext } from "../context/loginContext";
 function Header() {
+    const context = useContext(LoginContext)
     return (
         <>
             <nav className="bp3-navbar .modifier bp3-dark" >
@@ -13,8 +15,9 @@ function Header() {
 
                     <span className="bp3-navbar-divider"></span>
                     <Link className="bp3-button bp3-minimal bp3-icon-cog" to="/form">formSetting</Link>
-                    <button className="bp3-button bp3-minimal bp3-icon-user"></button>
-                    <button className="bp3-button bp3-minimal bp3-icon-notifications"></button>
+
+                    <button className="bp3-button bp3-minimal bp3-icon-log-out" onClick={context.logout} >log-out</button>
+
                 </div>
             </nav>
         </>
